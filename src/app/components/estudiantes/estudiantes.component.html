@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Lista de estudiantes</h2>
+  <button class="btn btn-primary mb-3"[routerLink]="['formulario']">listar estudiante</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Sigla</th>
+        <th scope="col">Asignatura</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <th scope="row">{{estudiante.id}}</th>
+        <td>{{estudiante.nombre}}</td>
+        <td>{{estudiante.apellido}}</td>
+        <td>{{estudiante.correo}}</td>
+        <td>{{estudiante.sigla}}</td>
+        <td>{{estudiante.asignatura.nombre}}</td>
+        <td>
+           <button class="btn btn-info me-2" [routerLink]="['formulario', estudiante.id]">Editar</button>
+           <button class="btn btn-danger" (click)="eliminarEstudiante(estudiante.id)">Eliminar</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

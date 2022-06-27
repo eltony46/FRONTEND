@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Listar estudiante</h2>
+  <form>
+
+    <div  class="mb-3">
+      <label form="exampleImputEmail1" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" [(ngModel)] ="estudiante.nombre">
+    </div>
+    <div  class="mb-3">
+      <label form="exampleImputEmail1" class="form-label">Apellido</label>
+      <input type="text" class="form-control" name="apellido" [(ngModel)] ="estudiante.apellido">
+    </div>
+    <div  class="mb-3">
+      <label form="exampleImputEmail1" class="form-label">Correo</label>
+      <input type="text" class="form-control" name="correo" [(ngModel)] ="estudiante.correo">
+    </div>
+    <div class="mb-3">
+      <label for="sigla" class="form-label">Sigla</label>
+      <input type="text" class="form-control" name="sigla" [(ngModel)]="estudiante.sigla">
+    </div>
+    <div class="mb-3">
+      <label for="imagen" class="form-label">imagen</label>
+      <input type="text" class="form-control" name="imagen" [(ngModel)]="estudiante.imagen">
+    </div>
+
+    <div class="form-grup row">
+      <label for="asignatura" class="col-form-label col-sm-2">Asignatura</label>
+           <select [compareWith]="compararEstudiante" [(ngModel)]="estudiante.asignatura" class="form-control" name="asignatura">
+               <option [ngValue] ="undefined">---Selecionar un Asignatura---</option>
+                <option *ngFor=" let asignatura of asignaturas" [ngValue]="asignatura">{{asignatura.nombre}}</option>
+            </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2" (click)="listarEstudiante()" *ngIf="!estudiante.id">Guardar</button>
+    <button type="submit" class="btn btn-primary mt-2" (click)="actualizarEstudiante()" *ngIf="estudiante.id"  >Guardar</button>
+
+  </form>
+
+</div>
+
+

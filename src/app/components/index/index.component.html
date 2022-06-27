@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Estudiantes</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let estudiante of estudiantes">
+      <div class="card">
+        <img [src]="estudiante.imagen" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{estudiante.nombre}}</h5>
+          <h5 class="card-title">{{estudiante.correo}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
